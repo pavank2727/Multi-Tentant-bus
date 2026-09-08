@@ -1,8 +1,8 @@
 interface YathriLogoProps {
-  size?: number;
-  textColor?: string;
-  showTagline?: boolean;
-  tagline?: string;
+  size?: number
+  textColor?: string
+  showTagline?: boolean
+  tagline?: string
 }
 
 /* SVG mark: stylised road-fork forming a Y — two paths converging into one journey */
@@ -47,7 +47,7 @@ function YathriMark({ size }: { size: number }) {
       {/* Small dot at junction — the traveller */}
       <circle cx="20" cy="21" r="2.2" fill="white" />
     </svg>
-  );
+  )
 }
 
 export default function YathriLogo({
@@ -56,8 +56,8 @@ export default function YathriLogo({
   showTagline = false,
   tagline = "OPERATOR PORTAL",
 }: YathriLogoProps) {
-  const nameSize = Math.round(size * 0.52);
-  const tagSize  = Math.round(size * 0.28);
+  const nameSize = Math.round(size * 0.52)
+  const tagSize = Math.round(size * 0.28)
 
   return (
     <div className="flex items-center gap-2.5">
@@ -82,5 +82,5 @@ export default function YathriLogo({
         )}
       </div>
     </div>
-  );
+  )
 }
