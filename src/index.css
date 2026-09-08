@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+/* ─── Brand tokens — India tricolour theme ──────────────── */
+:root {
+  /* Saffron (Kesari) — primary */
+  --red:       #F97316;
+  --red-light: #FFF7ED;
+  --red-mid:   #FDBA74;
+  --red-dark:  #EA580C;
+  /* India Green — secondary accent */
+  --green:     #138808;
+  --green-light: #F0FDF4;
+  /* Ashoka Navy — dark sections */
+  --navy:      #0F172A;
+  --surface:   #FFFFFF;
+  --surface-2: #F8FAFC;
+  --surface-3: #F1F5F9;
+  --border:    #E2E8F0;
+  --border-2:  #CBD5E1;
+  --text-1:    #0F172A;
+  --text-2:    #334155;
+  --text-3:    #64748B;
+  --text-4:    #94A3B8;
+}
+
+/* ─── Scrollbars ─────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+
+/* ─── Typography helpers ─────────────────────────────────── */
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+.font-inter   { font-family: 'Inter', sans-serif; }
+.font-mono    { font-family: 'JetBrains Mono', monospace; }
+
+/* ─── Fade in ─────────────────────────────────────────────── */
+.fade-in {
+  animation: fadeIn 0.18s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Sidebar nav ─────────────────────────────────────────── */
+.nav-item {
+  border-left: 2px solid transparent;
+  transition: all 0.12s;
+  color: var(--text-3);
+}
+.nav-item:hover {
+  background: var(--surface-3);
+  color: var(--text-2);
+}
+.nav-item-active {
+  background: var(--brand-primary, var(--red-light));
+  background: color-mix(in srgb, var(--brand-primary, #F97316) 12%, transparent);
+  border-left-color: var(--brand-primary, var(--red));
+  color: var(--brand-primary, var(--red));
+}
+
+/* ─── Table ──────────────────────────────────────────────── */
+.op-table { width: 100%; border-collapse: collapse; }
+.op-table th {
+  background: var(--surface-2);
+  color: var(--text-4);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-weight: 500;
+}
+.op-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-2);
+}
+.op-table tbody tr:hover td { background: var(--surface-2); }
+
+/* ─── Inputs ─────────────────────────────────────────────── */
+.op-input {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  color: var(--text-1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.12s, box-shadow 0.12s;
+  font-family: 'Inter', sans-serif;
+}
+.op-input:focus {
+  border-color: var(--brand-primary, var(--red));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary, #F97316) 12%, transparent);
+}
+.op-input::placeholder { color: var(--text-4); }
+
+.op-select {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  color: var(--text-1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+.op-select:focus { border-color: var(--brand-primary, var(--red)); }
+
+/* ─── Badges ─────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.badge-saffron { background: color-mix(in srgb, var(--brand-primary,#F97316) 10%, white); color: var(--brand-primary,#F97316); border: 1px solid color-mix(in srgb, var(--brand-primary,#F97316) 30%, white); }
+.badge-red    { background: color-mix(in srgb, var(--brand-primary,#F97316) 10%, white); color: var(--brand-primary,#F97316); border: 1px solid color-mix(in srgb, var(--brand-primary,#F97316) 30%, white); }
+.badge-green  { background: #F0FDF4; color: #16A34A; border: 1px solid #BBF7D0; }
+.badge-blue   { background: #EFF6FF; color: #2563EB; border: 1px solid #BFDBFE; }
+.badge-yellow { background: #FFFBEB; color: #D97706; border: 1px solid #FDE68A; }
+.badge-gray   { background: #F8FAFC; color: #64748B; border: 1px solid #E2E8F0; }
+.badge-orange { background: #FFF7ED; color: #EA580C; border: 1px solid #FDBA74; }
+
+/* ─── Customer portal inputs ─────────────────────────────── */
+.cu-input {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  color: var(--text-1);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+.cu-input:focus {
+  border-color: var(--brand-primary, var(--red));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary, #F97316) 12%, transparent);
+}
+.cu-input::placeholder { color: var(--text-4); }
+
+/* ─── Seats ──────────────────────────────────────────────── */
+.seat-available {
+  background: #F0FDF4;
+  border: 1.5px solid #86EFAC;
+  color: #166534;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.seat-available:hover {
+  background: #DCFCE7;
+  border-color: #4ADE80;
+  transform: scale(1.06);
+}
+.seat-booked {
+  background: #FFF7ED;
+  border: 1.5px solid #FED7AA;
+  color: #9A3412;
+  cursor: not-allowed;
+}
+.seat-female {
+  background: #FFFBEB;
+  border: 1.5px solid #FDE68A;
+  color: #92400E;
+  cursor: not-allowed;
+}
+.seat-selected {
+  background: #138808;
+  border: 1.5px solid #16A34A;
+  color: #fff;
+  transform: scale(1.06);
+}
+
+/* ─── OTP input ──────────────────────────────────────────── */
+.otp-input {
+  width: 50px;
+  height: 54px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--text-1);
+  transition: all 0.12s;
+}
+.otp-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+}
+
+/* ─── Card base ──────────────────────────────────────────── */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.card-hover {
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.card-hover:hover {
+  box-shadow: 0 4px 16px rgba(15,23,42,0.08);
+  transform: translateY(-1px);
+}
+
+/* ─── Primary button ─────────────────────────────────────── */
+.btn-primary {
+  background: var(--brand-primary, var(--red));
+  color: var(--brand-primary-fg, #fff);
+  border-radius: var(--brand-radius, 10px);
+  font-family: var(--brand-font-head, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 700;
+  transition: background 0.12s, box-shadow 0.12s, opacity 0.12s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover {
+  opacity: 0.88;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--brand-primary, #F97316) 40%, transparent);
+}
+.btn-ghost {
+  background: var(--surface-2);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.btn-ghost:hover { background: var(--surface-3); }

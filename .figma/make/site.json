@@ -1,0 +1,10 @@
+{
+  "description": "Streamline bus operations with a multi-tenant platform for operators and passengers, offering bus management, scheduling, booking, and real-time tracking.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
